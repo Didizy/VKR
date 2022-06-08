@@ -1,13 +1,24 @@
 import "./App.css";
-import Camera from "./pages/Camera";
-import CameraWebCam from "./pages/CameraWebCam";
+import MapPage from "./pages/MapPage";
+import CameraPage from "./pages/CameraPage";
+import { BrowserRouter as Router, Routes, Route, Link, Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      {/* <Camera /> */}
-      <CameraWebCam />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CameraPage />} />
+        <Route path="map" element={<MapPage />} />
+      </Routes>
+
+      {/* <Routes>
+        <Route path="/" element={<CameraPage />}>
+          <Route path="map" element={<MapPage />} />
+        </Route>  
+      </Routes> */}
+
+      {/* <CameraPage /> */}
+    </Router>
   );
 }
 

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Webcam from "react-webcam";
+import { Button, Link } from "@mui/material";
+import { Box } from "@mui/system";
+import { NavLink } from "react-router-dom";
 
-function CameraWebCam() {
+function Camera() {
   const [sendImg, setSendImg] = useState("");
 
   const check_img = async () => {
@@ -16,18 +20,20 @@ function CameraWebCam() {
     });
   };
 
-  const HEIGHT = 500;
-  const WIDTH = 500;
+  const HEIGHT = window.innerHeight;
+  const WIDTH = window.innerWidth;
 
   const webcamRef = React.useRef(null);
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    // console.log(imageSrc);
+    console.log(imageSrc);
+
     setSendImg(imageSrc);
   }, [webcamRef]);
 
   return (
     <div>
+      {(console.log(WIDTH), console.log(HEIGHT))}
       <Webcam
         audio={false}
         width={WIDTH}
@@ -35,10 +41,14 @@ function CameraWebCam() {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
       />
-      <button onClick={capture}>Capture photo</button>
-      <div>{sendImg}</div>
+      <Box>
+        <NavLink to="map" style={{ textDecoration: "none" }}>
+          <Button>Карта</Button>
+        </NavLink>
+        <Button onClick={capture}>Capture photo</Button>
+      </Box>
     </div>
   );
 }
 
-export default CameraWebCam;
+export default Camera;
