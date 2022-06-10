@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import React from "react";
+import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import Webcam from "react-webcam";
 
 const FACING_MODE_USER = "user";
@@ -22,7 +23,9 @@ const CameraSwitch = () => {
 
   return (
     <>
-      <Button onClick={handleClick}>Switch camera</Button>
+      <IconButton color="primary" onClick={handleClick}>
+        <CameraswitchIcon />
+      </IconButton>
     </>
   );
 };

@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ORIGIN_WHITELIST = ('http://localhost:3000/',)
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000/', 'https://vkr-blue.vercel.app/')
 
 # Application definition
 
