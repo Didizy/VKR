@@ -20,7 +20,7 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight;
+  const HEIGHT = window.innerHeight - 100;
   const WIDTH = window.innerWidth;
 
   const webcamRef = React.useRef(null);
