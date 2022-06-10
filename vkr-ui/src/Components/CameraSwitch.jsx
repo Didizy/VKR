@@ -11,9 +11,10 @@ const videoConstraints = {
 };
 
 const CameraSwitch = () => {
-  const [facingMode, setFacingMode] = React.useState(FACING_MODE_USER);
+  const [facingMode, setFacingMode] = React.useState(FACING_MODE_ENVIRONMENT);
 
   const handleClick = React.useCallback(() => {
+    console.log("Test switch");
     setFacingMode((prevState) =>
       prevState === FACING_MODE_USER
         ? FACING_MODE_ENVIRONMENT
