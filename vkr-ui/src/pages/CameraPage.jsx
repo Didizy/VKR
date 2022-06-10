@@ -5,10 +5,11 @@ import { Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+//style={{ position: "fixed", scale: "none" }}
 
 function CameraPage() {
   return (
-    <div style={{ position: "fixed", scale: "none" }}>
+    <div>
       <Box component={Paper} sx={{ textAlign: "center" }}>
         <Camera />
       </Box>
