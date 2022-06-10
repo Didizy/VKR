@@ -78,8 +78,8 @@ function Camera() {
       </Box>
       <Webcam
         audio={false}
-        // width={width}
-        // height={height}
+        width={WIDTH}
+        height={HEIGHT}
         className="webcamera"
         ref={webcamRef}
         forceScreenshotSourceSize="true"
