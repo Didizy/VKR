@@ -40,6 +40,7 @@ function Camera() {
   const videoConstraints = {
     width: width,
     height: height,
+
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
@@ -80,6 +81,7 @@ function Camera() {
         width={width}
         height={height}
         ref={webcamRef}
+        object-fit="cover"
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
       />
