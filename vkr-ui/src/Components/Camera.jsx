@@ -81,7 +81,7 @@ function Camera() {
         width={width}
         height={height}
         ref={webcamRef}
-        object-fit="cover"
+        forceScreenshotSourceSize="true"
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
       />
