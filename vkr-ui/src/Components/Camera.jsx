@@ -70,8 +70,8 @@ function Camera() {
       </Box>
       <Webcam
         audio={false}
-        // width={WIDTH}
-        // height={HEIGHT}
+        width={WIDTH}
+        height={HEIGHT}
         ref={webcamRef}
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
