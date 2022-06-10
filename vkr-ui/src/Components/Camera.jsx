@@ -22,7 +22,7 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight;
+  const HEIGHT = window.innerHeight - 80;
   const WIDTH = window.innerWidth;
 
   const FACING_MODE_USER = "user";
@@ -70,10 +70,10 @@ function Camera() {
       </Box>
       <Webcam
         audio={false}
-        width={WIDTH}
-        height={HEIGHT}
+        // width={WIDTH}
+        // height={HEIGHT}
         ref={webcamRef}
-        videoConstraints={{...videoConstraints, facingMode}}
+        videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
       />
       <Box>
