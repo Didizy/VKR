@@ -4,7 +4,7 @@ import Webcam from "react-webcam";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, style } from "@mui/system";
 import { NavLink } from "react-router-dom";
 
 function Camera() {
@@ -80,9 +80,10 @@ function Camera() {
         audio={false}
         // width={width}
         // height={height}
+        className="webcamera"
         ref={webcamRef}
         forceScreenshotSourceSize="true"
-        videoConstraints={{ ...videoConstraints, facingMode, height, width }}
+        videoConstraints={{ ...videoConstraints, facingMode}}
         screenshotFormat="image/jpeg"
       />
       <Box>
