@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import Webcam from "react-webcam";
 
@@ -8,7 +9,7 @@ const videoConstraints = {
   facingMode: FACING_MODE_USER,
 };
 
-const WebcamCapture = () => {
+const CameraSwitch = () => {
   const [facingMode, setFacingMode] = React.useState(FACING_MODE_USER);
 
   const handleClick = React.useCallback(() => {
@@ -21,18 +22,9 @@ const WebcamCapture = () => {
 
   return (
     <>
-      <button onClick={handleClick}>Switch camera</button>
-      <Webcam
-        audio={false}
-        screenshotFormat="image/jpeg"
-        videoConstraints={{
-          ...videoConstraints,
-          facingMode,
-        }}
-      />
+      <Button onClick={handleClick}>Switch camera</Button>
     </>
   );
 };
 
-export default WebcamCapture;
-
+export default CameraSwitch;

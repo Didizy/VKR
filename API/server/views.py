@@ -6,6 +6,7 @@ from .serializers import *
 
 class ImageView(APIView):
     def post(self, request):
-        
+        print("TEST")
+        print(request.data['img'])
 
         return Response("Aaa")

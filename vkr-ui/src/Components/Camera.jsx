@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Webcam from "react-webcam";
+import CameraSwitch from "./CameraSwitch";
 import { Button, Link } from "@mui/material";
 import { Box } from "@mui/system";
 import { NavLink } from "react-router-dom";
@@ -20,15 +21,17 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight - 100;
+  const HEIGHT = window.innerHeight - 50;
   const WIDTH = window.innerWidth;
 
   const webcamRef = React.useRef(null);
+
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     console.log(imageSrc);
 
     setSendImg(imageSrc);
+    check_img();
   }, [webcamRef]);
 
   return (
@@ -42,6 +45,7 @@ function Camera() {
         screenshotFormat="image/jpeg"
       />
       <Box>
+        <CameraSwitch />
         <NavLink to="map" style={{ textDecoration: "none" }}>
           <Button>Карта</Button>
         </NavLink>
