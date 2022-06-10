@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import Webcam from "react-webcam";
 
@@ -11,8 +11,8 @@ const videoConstraints = {
 };
 
 const CameraSwitch = () => {
-  const [facingMode, setFacingMode] = React.useState(FACING_MODE_ENVIRONMENT);
-
+  const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
+  
   const handleClick = React.useCallback(() => {
     console.log("Test switch");
     setFacingMode((prevState) =>

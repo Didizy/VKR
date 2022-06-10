@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Webcam from "react-webcam";
-import CameraSwitch from "./CameraSwitch";
+import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
 import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
 import { Box } from "@mui/system";
@@ -25,11 +25,25 @@ function Camera() {
   const HEIGHT = window.innerHeight - 100;
   const WIDTH = window.innerWidth;
 
+  const FACING_MODE_USER = "user";
+  const FACING_MODE_ENVIRONMENT = "environment";
+
   const videoConstraints = {
     width: WIDTH,
     height: HEIGHT,
-    facingMode: "user"
+    facingMode: FACING_MODE_ENVIRONMENT,
   };
+
+  const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
+
+  const handleClick = React.useCallback(() => {
+    console.log("Test switch");
+    setFacingMode((prevState) =>
+      prevState === FACING_MODE_USER
+        ? FACING_MODE_ENVIRONMENT
+        : FACING_MODE_USER
+    );
+  }, []);
 
   const webcamRef = React.useRef(null);
 
@@ -43,8 +57,10 @@ function Camera() {
 
   return (
     <div>
-      <Box sx={{ display: "flex", justifyContent: "space-between"}}>
-        <CameraSwitch />
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <IconButton color="primary" onClick={handleClick}>
+          <CameraswitchIcon />
+        </IconButton>
         <NavLink to="map" style={{ textDecoration: "none" }}>
           <IconButton color="primary">
             <MapIcon />
