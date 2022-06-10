@@ -28,21 +28,22 @@ function Camera() {
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
 
+  const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
+  
   const videoConstraints = {
     width: WIDTH,
     height: HEIGHT,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
-  const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
-
-  const handleClick = React.useCallback(() => {
+  const switchCamera = React.useCallback(() => {
     console.log("Test switch");
     setFacingMode((prevState) =>
       prevState === FACING_MODE_USER
         ? FACING_MODE_ENVIRONMENT
         : FACING_MODE_USER
     );
+    console.log(facingMode);
   }, []);
 
   const webcamRef = React.useRef(null);
@@ -58,7 +59,7 @@ function Camera() {
   return (
     <div>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <IconButton color="primary" onClick={handleClick}>
+        <IconButton color="primary" onClick={switchCamera}>
           <CameraswitchIcon />
         </IconButton>
         <NavLink to="map" style={{ textDecoration: "none" }}>
