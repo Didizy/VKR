@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Webcam from "react-webcam";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
@@ -24,6 +24,13 @@ function Camera() {
 
   const HEIGHT = window.innerHeight - 80;
   const WIDTH = window.innerWidth;
+  const [height, setHeight] = useState(window.innerHeight - 80);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    setHeight(window.innerHeight - 80);
+    setWidth(window.innerWidth);
+  });
 
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
@@ -31,8 +38,8 @@ function Camera() {
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
 
   const videoConstraints = {
-    width: WIDTH,
-    height: HEIGHT,
+    width: width,
+    height: height,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
@@ -70,8 +77,8 @@ function Camera() {
       </Box>
       <Webcam
         audio={false}
-        width={WIDTH}
-        height={HEIGHT}
+        width={width}
+        height={height}
         ref={webcamRef}
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
