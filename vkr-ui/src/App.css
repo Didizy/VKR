@@ -44,7 +44,7 @@
 }
 
 .webcamera {
-  width: 100%;
-  max-width: none;
-  height: auto;
+  height: 100%;
+  max-height: none;
+  width: auto;
 }
