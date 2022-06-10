@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function CameraPage() {
   return (
-    <div>
+    <div style={{ position: "fixed", scale: "none" }}>
       <Box component={Paper} sx={{ textAlign: "center" }}>
         <Camera />
       </Box>

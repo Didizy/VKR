@@ -24,6 +24,7 @@ function Camera() {
 
   const HEIGHT = window.innerHeight - 80;
   const WIDTH = window.innerWidth;
+
   const [height, setHeight] = useState(window.innerHeight - 80);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -38,9 +39,8 @@ function Camera() {
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
 
   const videoConstraints = {
-    width: width,
-    height: height,
-
+    width: WIDTH,
+    height: HEIGHT,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
@@ -78,12 +78,12 @@ function Camera() {
       </Box>
       <Webcam
         audio={false}
-        width={WIDTH}
-        height={HEIGHT}
+        // width={WIDTH}
+        // height={HEIGHT}
         className="webcamera"
         ref={webcamRef}
         forceScreenshotSourceSize="true"
-        videoConstraints={{ ...videoConstraints, facingMode}}
+        videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/jpeg"
       />
       <Box>
