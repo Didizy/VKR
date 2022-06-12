@@ -25,14 +25,6 @@ function Camera() {
   const HEIGHT = window.innerHeight - 80;
   const WIDTH = window.innerWidth;
 
-  const [height, setHeight] = useState(window.innerHeight - 80);
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    setHeight(window.innerHeight - 80);
-    setWidth(window.innerWidth);
-  });
-
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
 
