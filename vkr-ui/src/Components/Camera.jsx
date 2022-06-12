@@ -13,7 +13,8 @@ function Camera() {
   const check_img = async () => {
     await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/api/images/",
+      // url: "http://127.0.0.1:8000/api/images/",
+      url: "http://didizy.pythonanywhere.com/api/images/",
       data: {
         img: sendImg,
       },
