@@ -42,9 +42,6 @@
   max-width: none;
   height: auto;
 }
-.map_img:hover {
-  transform: scale(2);
-}
 
 .webcamera {
   /* height: 100%;

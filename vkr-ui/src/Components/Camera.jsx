@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Webcam from "react-webcam";
 import CameraswitchIcon from "@mui/icons-material/Cameraswitch";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
 import { Box, style } from "@mui/system";
@@ -23,7 +24,7 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight - 80;
+  const HEIGHT = window.innerHeight - 100;
   const WIDTH = window.innerWidth;
 
   const FACING_MODE_USER = "user";
@@ -80,7 +81,9 @@ function Camera() {
         screenshotFormat="image/jpeg"
       />
       <Box>
-        <Button onClick={capture}>Capture photo</Button>
+        <IconButton onClick={capture} color="primary" size="large">
+          <CameraAltIcon fontSize="large" />
+        </IconButton>
       </Box>
     </div>
   );
