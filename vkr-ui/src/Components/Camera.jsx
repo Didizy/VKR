@@ -7,15 +7,18 @@ import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
 import { Box, style } from "@mui/system";
 import { NavLink } from "react-router-dom";
+import "../global.js"
 
 function Camera() {
   const [sendImg, setSendImg] = useState("");
 
   const check_img = async () => {
+    console.log();
     await axios({
       method: "post",
+      url: `${global.local_path}/api/images/`,
       // url: "http://127.0.0.1:8000/api/images/",
-      url: "https://didizy.pythonanywhere.com/api/images/",
+      // url: "https://didizy.pythonanywhere.com/api/images/",
       data: {
         img: sendImg,
       },
@@ -78,7 +81,7 @@ function Camera() {
         // className="webcamera"
         // forceScreenshotSourceSize="true"
         videoConstraints={{ ...videoConstraints, facingMode }}
-        screenshotFormat="image/jpeg"
+        screenshotFormat="image/png"
       />
       <Box>
         <IconButton onClick={capture} color="primary" size="large">

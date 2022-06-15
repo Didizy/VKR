@@ -16,7 +16,7 @@ function Map() {
         <h2>Карта помещений</h2>{" "}
       </Container>
       <Container maxWidth>
-        <img src="imgs/D9.jpg" alt="" class="map_img" />
+        <img src="imgs/D8.jpg" alt="" class="map_img" />
         <Container sx={{ textAlign: "right" }}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <Button>Назад</Button>
