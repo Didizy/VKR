@@ -5,8 +5,6 @@ from .models import *
 from .serializers import *
 
 import base64
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 from PIL import Image
 from io import BytesIO
 
