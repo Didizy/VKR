@@ -55,9 +55,9 @@ function Camera() {
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    console.log(imageSrc);
-
+    
     setSendImg(imageSrc);
+    console.log(sendImg);
     check_img();
   }, [webcamRef]);
 

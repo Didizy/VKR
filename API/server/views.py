@@ -11,16 +11,14 @@ from io import BytesIO
 
 class ImageView(APIView):
     def post(self, request):
-        print("TEST")
-        img = request.data['img']
-        dec = base64.b64decode(img)
-        print(dec)
-        new_img = ImageModel(img=dec)
-        new_img.save()
-        # plt.imshow(mpimg.imread(dec))
-        # plt.show()
+        data_img = request.data['img']
+        img = data_img.replace('data:image/png;base64,', '')
+        imgdata = base64.b64decode(img)
+        filename = 'some.png'
+        with open(filename, 'wb') as f:
+            f.write(imgdata)
 
-        return Response("Aaa")
+        return Response("Фото отправлено!")
 
     def get(self, request):
         img_id = 1
