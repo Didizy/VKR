@@ -13,7 +13,7 @@ function Camera() {
   const [sendImg, setSendImg] = useState("");
 
   const check_img = async () => {
-    console.log();
+    console.log("sendImg");
     await axios({
       method: "post",
       url: `${global.local_path}/api/images/`,
@@ -24,6 +24,37 @@ function Camera() {
       },
     }).then((response) => {
       alert(response.data);
+      // setSendImg("");
+    });
+  };
+
+  const webcamRef = React.useRef(null);
+
+  // const capture = React.useCallback(() => {
+  //   // const imageSrc = webcamRef.current.getScreenshot();
+  //   console.log("Screen!");
+  //   // console.log(imageSrc);
+  //   setSendImg(webcamRef.current.getScreenshot());
+  //   console.log(sendImg);
+  //   check_img();
+  // }, [webcamRef]);
+
+  const capture = () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    // console.log(imageSrc);
+    // setSendImg(imageSrc);
+    // console.log(sendImg);
+    axios({
+      method: "post",
+      url: `${global.local_path}/api/images/`,
+      // url: "http://127.0.0.1:8000/api/images/",
+      // url: "https://didizy.pythonanywhere.com/api/images/",
+      data: {
+        img: imageSrc,
+      },
+    }).then((response) => {
+      alert(response.data);
+      // setSendImg("");
     });
   };
 
@@ -50,16 +81,6 @@ function Camera() {
     );
     console.log(facingMode);
   }, []);
-
-  const webcamRef = React.useRef(null);
-
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-
-    setSendImg(imageSrc);
-    console.log(sendImg);
-    check_img();
-  }, [webcamRef]);
 
   return (
     <div>
