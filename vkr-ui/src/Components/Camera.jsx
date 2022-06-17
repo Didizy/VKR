@@ -27,7 +27,7 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight - 300;
+  const HEIGHT = window.innerHeight - 100;
   const WIDTH = window.innerWidth;
 
   const FACING_MODE_USER = "user";
@@ -37,7 +37,7 @@ function Camera() {
 
   const videoConstraints = {
     width: WIDTH,
-    height: HEIGHT,
+    height: HEIGHT-100,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
