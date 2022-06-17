@@ -20,7 +20,7 @@ function LocationModal() {
       // url: "http://127.0.0.1:8000/api/images/",
       // url: "https://didizy.pythonanywhere.com/api/images/",
     }).then((response) => {
-      setImgPath('http://127.0.0.1:8000/media/'+response.data);
+      setImgPath("http://127.0.0.1:8000/media/" + response.data);
       console.log(imgPath);
     });
   };
