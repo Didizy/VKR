@@ -37,7 +37,7 @@ function Camera() {
 
   const videoConstraints = {
     height: 700,
-    width: 400,
+    width: 300,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
