@@ -7,7 +7,7 @@ import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
 import { Box, style } from "@mui/system";
 import { NavLink } from "react-router-dom";
-import "../global.js"
+import "../global.js";
 
 function Camera() {
   const [sendImg, setSendImg] = useState("");
@@ -55,7 +55,7 @@ function Camera() {
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    
+
     setSendImg(imageSrc);
     console.log(sendImg);
     check_img();

@@ -21,11 +21,16 @@ class ImageView(APIView):
         return Response("Фото отправлено!")
 
     def get(self, request):
-        img_id = 1
-        img = ImageModel.objects.get(pk=img_id)
+        img = list(LocationModel.objects.filter(location_name='Холл D8').values())[0]['location_img']
+        # img['location_img']
+        # filename = 'db_img.png'
+        # with open(filename, 'wb') as f:
+        #     f.write(img)
+        print(img)
         # print(Image.open(img.img).tobytes().decode("ISO-8859-1"))
         # print(to_pil)
-        return Response(Image.open(img.img).tobytes().decode("ISO-8859-1"))
+        # return Response(Image.open(img.img).tobytes().decode("ISO-8859-1"))
+        return Response(img)
 
 
 class LocationView(APIView):

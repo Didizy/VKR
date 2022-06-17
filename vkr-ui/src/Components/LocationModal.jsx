@@ -11,7 +11,7 @@ import { Paper } from "@mui/material";
 import { Container } from "@mui/system";
 
 function LocationModal() {
-  const [sendImg, setSendImg] = useState("");
+  const [imgPath, setImgPath] = useState("");
 
   const test = async () => {
     await axios({
@@ -20,8 +20,8 @@ function LocationModal() {
       // url: "http://127.0.0.1:8000/api/images/",
       // url: "https://didizy.pythonanywhere.com/api/images/",
     }).then((response) => {
-      console.log(response.data);
-      setSendImg(response.data);
+      setImgPath('http://127.0.0.1:8000/media/'+response.data);
+      console.log(imgPath);
     });
   };
 
@@ -36,8 +36,8 @@ function LocationModal() {
       </Container>
       <Container maxWidth>
         <Button onClick={test}>Test</Button>
-        {/* <img src={sendImg} alt="" class="map_img" /> */}
-        {sendImg}
+        <img src={imgPath} alt="" class="map_img" />
+        {imgPath}
         <Container sx={{ textAlign: "right" }}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <Button>Назад</Button>
