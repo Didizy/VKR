@@ -27,7 +27,7 @@ function Camera() {
     });
   };
 
-  const HEIGHT = window.innerHeight - 100;
+  const HEIGHT = window.innerHeight - 300;
   const WIDTH = window.innerWidth;
 
   const FACING_MODE_USER = "user";

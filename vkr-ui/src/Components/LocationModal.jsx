@@ -20,6 +20,7 @@ function LocationModal() {
       // url: "http://127.0.0.1:8000/api/images/",
       // url: "https://didizy.pythonanywhere.com/api/images/",
     }).then((response) => {
+      console.log(response.data);
       setSendImg(response.data);
     });
   };
@@ -35,7 +36,8 @@ function LocationModal() {
       </Container>
       <Container maxWidth>
         <Button onClick={test}>Test</Button>
-        <img src={sendImg} alt="" class="map_img" />
+        {/* <img src={sendImg} alt="" class="map_img" /> */}
+        {sendImg}
         <Container sx={{ textAlign: "right" }}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <Button>Назад</Button>

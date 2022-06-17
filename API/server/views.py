@@ -25,5 +25,11 @@ class ImageView(APIView):
     def get(self, request):
         img_id = 1
         img = ImageModel.objects.get(pk=img_id)
-        print(img)
-        return Response(img.img.path)
+        # print(Image.open(img.img).tobytes().decode("ISO-8859-1"))
+        print(to_pil)
+        return Response(Image.open(img.img).tobytes().decode("ISO-8859-1"))
+
+
+class LocationView(APIView):
+    def get(self):
+        return
