@@ -26,7 +26,7 @@ class ImageView(APIView):
         img_id = 1
         img = ImageModel.objects.get(pk=img_id)
         # print(Image.open(img.img).tobytes().decode("ISO-8859-1"))
-        print(to_pil)
+        # print(to_pil)
         return Response(Image.open(img.img).tobytes().decode("ISO-8859-1"))
 
 
