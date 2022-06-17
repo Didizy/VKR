@@ -36,8 +36,8 @@ function Camera() {
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
 
   const videoConstraints = {
-    height: 700,
-    width: 300,
+    height: HEIGHT,
+    width: WIDTH,
     facingMode: FACING_MODE_ENVIRONMENT,
   };
 
@@ -78,7 +78,7 @@ function Camera() {
         ref={webcamRef}
         height={HEIGHT}
         width={WIDTH}
-        // className="webcamera"
+        className="webcamera"
         // forceScreenshotSourceSize="true"
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/png"

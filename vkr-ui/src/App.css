@@ -44,7 +44,5 @@
 }
 
 .webcamera {
-  /* height: 100%;
-  max-height: none;
-  width: auto; */
+  transform: rotate(90deg);
 }
