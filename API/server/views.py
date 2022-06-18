@@ -16,6 +16,7 @@ class ImageView(APIView):
         data_img = request.data['img']
         # print(data_img)
         if data_img:
+            # прием фотки с фронта
             img = data_img.replace('data:image/png;base64,', '')
             imgdata = base64.b64decode(img)
 
@@ -24,8 +25,23 @@ class ImageView(APIView):
                 f.write(imgdata)
 
             image = Classifier()
-            print(image.checkImage(cv.imread(f'input.png')))
-            return Response("Фото отправлено!")
+            marker = image.checkImage(cv.imread(f'input.png'))
+            print(marker)
+
+            location_name = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
+                marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
+                'location_name']
+            print(location_name)
+
+            location_img = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
+                marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
+                'location_img']
+            print(location_img)
+
+            # return Response("Фото отправлено!")
+            data = {'name': location_name, 'path': location_img}
+            print(data)
+            return Response(data)
         else:
             return Response("ERROR")
 

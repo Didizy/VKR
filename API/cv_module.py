@@ -28,6 +28,7 @@ def findID(img, desList, orb):
     if len(matchList) != 0:
         if max(matchList) > 20:
             finalValue = matchList.index(max(matchList))
+
     return finalValue
 
 

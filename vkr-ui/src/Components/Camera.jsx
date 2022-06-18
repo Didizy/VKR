@@ -6,7 +6,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import MapIcon from "@mui/icons-material/Map";
 import { Button, IconButton, Link } from "@mui/material";
 import { Box, style } from "@mui/system";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import "../global.js";
 
 function Camera() {
@@ -39,6 +39,8 @@ function Camera() {
   //   check_img();
   // }, [webcamRef]);
 
+  const navigate = useNavigate();
+
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     // console.log(imageSrc);
@@ -53,8 +55,17 @@ function Camera() {
         img: imageSrc,
       },
     }).then((response) => {
-      alert(response.data);
+      // alert(response.data);
       // setSendImg("");
+      console.log(response.data);
+      console.log(response.data['name']);
+      console.log(response.data['path']);
+      navigate("/location", {
+        state: {
+          name: response.data['name'],
+          path: global.img_path + response.data['path'],
+        },
+      });
     });
   };
 
