@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   backend:
-    # build: ./backend/
+    build: ./API/
     image: api
     command: python manage.py runserver 0.0.0.0:8000
     # volumes:
@@ -11,6 +11,7 @@ services:
       - 8000:8000
     
   frontend:
+    build: ./vkr-ui/
     image: ui
     command: npm start
     ports:
