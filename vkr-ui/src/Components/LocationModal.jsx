@@ -42,7 +42,12 @@ function LocationModal() {
         {imgPath} */}
         {console.log(location.state.name)}
         <h4 class="map_name">{location.state.name}</h4>
-        <img src={location.state.path} alt="" class="map_img" />
+        {location.state.path ? (
+          <img src={location.state.path} alt="" class="map_img" />
+        ) : (
+          <></>
+        )}
+
         <Container sx={{ textAlign: "right" }}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <Button>Назад</Button>

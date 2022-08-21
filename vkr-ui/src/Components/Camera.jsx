@@ -58,14 +58,30 @@ function Camera() {
       // alert(response.data);
       // setSendImg("");
       console.log(response.data);
-      console.log(response.data['name']);
-      console.log(response.data['path']);
-      navigate("/location", {
-        state: {
-          name: response.data['name'],
-          path: global.img_path + response.data['path'],
-        },
-      });
+      console.log(response.data["name"]);
+      console.log(response.data["path"]);
+      if (response.data === "ERROR") {
+        navigate("/location", {
+          state: {
+            name: "Реперные знаки не найдены, местоположение установить невозможно",
+          },
+        });
+      } else {
+        if (response.data === "NULL") {
+          navigate("/location", {
+            state: {
+              name: "Ошибка отправки изображения",
+            },
+          });
+        } else {
+          navigate("/location", {
+            state: {
+              name: response.data["name"],
+              path: global.img_path + response.data["path"],
+            },
+          });
+        }
+      }
     });
   };
 

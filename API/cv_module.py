@@ -23,6 +23,7 @@ def findID(img, desList, orb):
                 if m.distance < 0.85 * n.distance:
                     good.append([m])
             matchList.append(len(good))
+            print(len(good))
     except:
         pass
     if len(matchList) != 0:

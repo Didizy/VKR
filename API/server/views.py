@@ -16,7 +16,6 @@ class ImageView(APIView):
         data_img = request.data['img']
         # print(data_img)
         if data_img:
-            # прием фотки с фронта
             img = data_img.replace('data:image/png;base64,', '')
             imgdata = base64.b64decode(img)
 
@@ -26,24 +25,27 @@ class ImageView(APIView):
 
             image = Classifier()
             marker = image.checkImage(cv.imread(f'input.png'))
+            # marker = "Marker4"
             print(marker)
+            if marker:
+                location_name = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
+                    marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
+                    'location_name']
+                print(location_name)
 
-            location_name = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
-                marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
-                'location_name']
-            print(location_name)
+                location_img = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
+                    marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
+                    'location_img']
+                print(location_img)
 
-            location_img = LocationModel.objects.filter(location_name=MarkerModel.objects.filter(
-                marker_img='images/markers/' + str(marker) + '.png').values()[0]['marker_location_id']).values()[0][
-                'location_img']
-            print(location_img)
-
-            # return Response("Фото отправлено!")
-            data = {'name': location_name, 'path': location_img}
-            print(data)
-            return Response(data)
+                # return Response("Фото отправлено!")
+                data = {'name': location_name, 'path': location_img}
+                print(data)
+                return Response(data)
+            else:
+                return Response("ERROR")
         else:
-            return Response("ERROR")
+            return Response("NULL")
 
     def get(self, request):
         img = list(LocationModel.objects.filter(location_name='Холл D8').values())[0]['location_img']
