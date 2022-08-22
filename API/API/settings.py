@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-^xk#wb3*a&wp9)buh+i1#a!0c0cy!3ss*lt5b*-3xduq32s*(9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['didizy.pythonanywhere.com', '127.0.0.1', 'localhost', '51.250.22.192']
+ALLOWED_HOSTS = ['didizy.pythonanywhere.com', '127.0.0.1', 'localhost', '51.250.27.125']
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ORIGIN_WHITELIST = ('http://localhost:3000/', 'https://vkr-blue.vercel.app/')
