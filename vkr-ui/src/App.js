@@ -1,7 +1,7 @@
 import "./App.css";
-import MapPage from "./Pages/MapPage";
-import CameraPage from "./Pages/CameraPage";
-import LocationPage from "./Pages/LocationPage";
+import MapPage from "./pages/MapPage";
+import CameraPage from "./pages/CameraPage";
+import LocationPage from "./pages/LocationPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
