@@ -34,7 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['didizy.pythonanywhere.com', '127.0.0.1', 'localhost', '51.250.27.125']
 
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ORIGIN_WHITELIST = ('http://localhost:3000/', 'https://vkr-blue.vercel.app/')
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000/', 'https://vkr-blue.vercel.app/', '51.250.27.125')
 
 # Application definition
 
