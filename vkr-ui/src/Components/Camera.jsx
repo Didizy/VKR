@@ -126,7 +126,7 @@ function Camera() {
         ref={webcamRef}
         height={HEIGHT}
         width={WIDTH}
-        className="webcamera"
+        // className="webcamera"
         // forceScreenshotSourceSize="true"
         videoConstraints={{ ...videoConstraints, facingMode }}
         screenshotFormat="image/png"
